@@ -11,6 +11,9 @@ class AuthorForm extends Component {
     books: []
   };
 
+  textChangeHandler = e =>
+  this.setState({ [e.target.name]: e.target.value });
+
   componentWillUnmount() {
     if (this.props.errors.length) this.props.resetErrors();
   }
@@ -37,19 +40,19 @@ class AuthorForm extends Component {
             <div className="input-group-prepend">
               <span className="input-group-text">First Name</span>
             </div>
-            <input type="text" className="form-control" name="first_name" />
+            <input type="text" className="form-control" name="first_name" onChange={this.textChangeHandler} value={this.state.first_name}/>
           </div>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">Last Name</span>
             </div>
-            <input type="text" className="form-control" name="last_name" />
+            <input type="text" className="form-control" name="last_name"  onChange={this.textChangeHandler} value={this.state.last_name}/>
           </div>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text">Image URL</span>
             </div>
-            <input type="text" className="form-control" name="imageUrl" />
+            <input type="text" className="form-control" name="imageUrl" onChange={this.textChangeHandler} value={this.state.imageUrl} />
           </div>
           <input type="submit" />
         </form>
